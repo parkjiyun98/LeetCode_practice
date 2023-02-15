@@ -17,8 +17,9 @@ class Solution {
         } else if (digits.length() == 1) {
             return map.get(digits);
         }
-        String digit = digits.substring(0, 1);
-        List<String> left = map.get(digit);
+        String digit1 = digits.substring(0, 1);
+        List<String> left = map.get(digit1);
+        String digit2 = digits.substring(1);
         List<String> right = letterCombinations(digits.substring(1));
         for (int i = 0; i < left.size(); i++) {
             String leftS = left.get(i);
