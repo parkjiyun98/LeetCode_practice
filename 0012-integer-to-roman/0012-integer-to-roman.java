@@ -15,34 +15,33 @@ class Solution {
         }
         return res.toString();
         */
-        String answer = "";
-
-        for(int idx = 0; idx < num / 1000; idx++) answer = answer.concat("M");
-        num %= 1000;
-        for(int idx = 0; idx < num / 900; idx++) answer = answer.concat("CM");
-        num %= 900;
-        for(int idx = 0; idx < num / 500; idx++) answer = answer.concat("D");
-        num %= 500;
-        for(int idx = 0; idx < num / 400; idx++) answer = answer.concat("CD");
-        num %= 400;
-        for(int idx = 0; idx < num / 100; idx++) answer = answer.concat("C");
-        num %= 100;
-        for(int idx = 0; idx < num / 90; idx++) answer = answer.concat("XC");
-        num %= 90;
-        for(int idx = 0; idx < num / 50; idx++) answer = answer.concat("L");
-        num %= 50;
-        for(int idx = 0; idx < num / 40; idx++) answer = answer.concat("XL");
-        num %= 40;
-        for(int idx = 0; idx < num / 10; idx++) answer = answer.concat("X");
-        num %= 10;
-        for(int idx = 0; idx < num / 9; idx++) answer = answer.concat("IX");
-        num %= 9;
-        for(int idx = 0; idx < num / 5; idx++) answer = answer.concat("V");
-        num %= 5;
-        for(int idx = 0; idx < num / 4; idx++) answer = answer.concat("IV");
-        num %= 4;
-        for(int idx = 0; idx < num / 1; idx++) answer = answer.concat("I");
-
-        return answer;
+        Comparator<Integer> comparator = Comparator.reverseOrder();
+        TreeMap<Integer,String> map = new TreeMap<Integer,String>(comparator);
+        map.put(1000,"M");
+        map.put(900, "CM");
+        map.put(500,"D");
+        map.put(400, "CD");
+        map.put(100,"C");
+        map.put(90, "XC");
+        map.put(50,"L");
+        map.put(40, "XL");
+        map.put(10,"X");
+        map.put(9, "IX");
+        map.put(5,"V");
+        map.put(4, "IV");
+        map.put(1,"I");
+               
+        StringBuilder sb = new StringBuilder();
+        for (int key : map.keySet()) {
+            while (num >= key) {
+                sb.append(map.get(key));
+                num -= key;
+            }
+            
+            if (num == 0) break;
+        }
+        
+        return sb.toString();
+        
     }
 }
