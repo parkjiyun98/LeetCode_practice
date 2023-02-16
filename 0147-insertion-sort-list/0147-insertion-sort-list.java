@@ -39,26 +39,23 @@ class Solution {
         }
         return head;
         */
-        if(head == null || head.next == null) return head;
-        List<Integer> list = new LinkedList<>();
-        ListNode temp = head;
-        while(head != null){
-            list.add(head.val);
-            head = head.next;
-        }
-        int[] arr = list.stream().mapToInt(Integer::intValue).toArray();
-        Arrays.sort(arr);
-        return makeListNode(arr);
-
-        }
-        public ListNode makeListNode(int[] arr){
-            ListNode ans  = new ListNode();
-            ans.val = arr[0];
-            ListNode ansNext = ans;
-            for(int i = 1; i < arr.length; i++){
-                ansNext.next= new ListNode(arr[i]);
-                ansNext = ansNext.next;
+        
+            if(head == null || head.next == null) return head;
+            List<Integer> list = new LinkedList<>();
+            ListNode temp = head;
+            while(temp != null){
+                list.add(temp.val);
+                temp = temp.next;
             }
-            return ans;
+            int [] arr = list.stream().mapToInt(Integer::intValue).toArray();
+            Arrays.sort(arr);
+            temp = head;
+            int i = 0;
+            while(temp != null){
+                temp.val = arr[i];
+                temp = temp.next;
+                i++;
+            }
+            return head;
         }
 }
