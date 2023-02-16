@@ -16,10 +16,13 @@ class Solution {
         }
         overlap.add(new int[] {start,end});
         
+        return overlap.toArray(new int[1][overlap.size()]);
+        /*
         int[][] answer = new int[overlap.size()][2];
         for(int i=0; i<overlap.size() ; ++i) 
         	answer[i] = overlap.get(i);
         
         return answer;
+        */
     }
 }
