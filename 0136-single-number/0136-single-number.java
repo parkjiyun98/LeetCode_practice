@@ -12,16 +12,12 @@ class Solution {
         }
         return 0;
         */
-        int i=0;
-        ArrayList<Integer> list=new ArrayList<Integer>();
-        for( i=0;i<nums.length;i++){
-            if(list.contains(nums[i])){
-              int n=list.indexOf(nums[i]);
-             list.remove(n);
-            }else if(!list.contains(nums[i])){
-                list.add(nums[i]);
-            }                     
-        }
-         return  list.get(0);
+        // Initialize the unique number...
+        int uniqNum = 0;
+        // TRaverse all elements through the loop...
+        for (int idx : nums) {
+            // Concept of XOR...
+            uniqNum ^= idx;
+        } return uniqNum;
     }
 }
