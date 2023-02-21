@@ -9,6 +9,6 @@ class Solution {
                 return key;
             }
         }
-        return -1;
+        return 0;
     }
 }
