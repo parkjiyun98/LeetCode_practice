@@ -22,11 +22,10 @@ class Solution {
         if(root == null) return 0;
         return dfs(root);
     }
-    public int dfs(Node root){
-        //if(root.children.size()==0) return 1;
-        
+    public int dfs(Node node){
         int max = 0;
-        for(Node x : root.children){
+        
+        for(Node x : node.children){
             max = Math.max(max, dfs(x)); 
         }
         
