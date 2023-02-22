@@ -23,7 +23,7 @@ class Solution {
         return dfs(root);
     }
     public int dfs(Node root){
-        if(root.children.size()==0) return 1;
+        //if(root.children.size()==0) return 1;
         
         int max = 0;
         for(Node x : root.children){
